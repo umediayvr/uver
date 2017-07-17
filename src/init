@@ -20,10 +20,11 @@
 #             `'-.   .-'`
 #                 \ /
 #                  `
-# Defines versiions of app, plugins (etc) as environment variables that are
+# Defines the active versions of app, plugins (etc) as environment variables that are
 # later used by wrappers inside ucore. The variables get defined by the convention
-# $UVER_<NAME>_VERSION. They are declared as json files under the "../versions"
-# folder as one dimension json.
+# $UVER_<NAME>_VERSION. They are declared using json files which can be localized
+# under the "../versions" folder (the json structure is basically an one dimension object).
+# Any json file created under ../versions is going to be used automatically.
 
 # getting current script folder
 dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
