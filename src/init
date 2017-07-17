@@ -1,0 +1,50 @@
+#!/bin/bash
+
+#                  _
+#                /   \
+#               |  o  |
+#                \   /
+#         ________) (________
+#        |                   |
+#        '------.     .------'
+#                |   |
+#                |   |
+#                |   |
+#                |   |
+#     /\         |   |         /\
+#    /_ \        /   \        / _\
+#      \ '.    .'     '.    .' /
+#       \  '--'         '--'  /
+#        '.                 .'
+#          '._           _.'
+#             `'-.   .-'`
+#                 \ /
+#                  `
+# Defines versiions of app, plugins (etc) as environment variables that are
+# later used by wrappers inside ucore. The variables get defined by the convention
+# $UVER_<NAME>_VERSION. They are declared as json files under the "../versions"
+# folder as one dimension json.
+
+# getting current script folder
+dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+rootDir="$( dirname $dir )"
+
+# sourcing scripts
+# core versions (looping through the versions types apps, libraries... etc)
+coreVersions=$(eval echo "$rootDir/versions")/*.json
+localVersions=$(eval echo "$UVER_LOCAL/versions")
+if [ -d "$localVersions" ]; then
+  localVersions=$localVersions/*.json
+else
+  localVersions=""
+fi
+
+# setting versions as environment variables
+for coreVersionType in $coreVersions $localVersions; do
+    while IFS='=' read -r name version || [[ -n "$name" ]];
+    do
+      # translating the format from the versions file followed by:
+      # name=version to enrvironment format name UVER_<$NAME>_VERSION=<$VERSION>
+      export "UVER_${name}_VERSION"=$version
+    done < <($dir/uqueryflatjson $coreVersionType)
+done
