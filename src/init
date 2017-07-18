@@ -20,7 +20,7 @@
 #             `'-.   .-'`
 #                 \ /
 #                  `
-# Defines the active versions of app, plugins (etc) as environment variables that are
+# Defines the active versions of apps, plugins (etc) as environment variables that are
 # later used by wrappers inside ucore. The variables get defined by the convention
 # $UVER_<NAME>_VERSION. They are declared using json files which can be localized
 # under the "../versions" folder (the json structure is basically an one dimension object).
@@ -28,11 +28,18 @@
 
 # getting current script folder
 dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-rootDir="$( dirname $dir )"
+
+# at deployment time the contents of src are moved to the root of the version. Lets
+# detect this behaviour first, otherwise it should fallback to the current structure
+# where versions folder is localized under the root
+versionsParentDir=$dir
+if ! [ -d "$versionsParentDir/versions" ]; then
+  versionsParentDir="$( dirname $versionsParentDir )"
+fi
 
 # sourcing scripts
 # core versions (looping through the versions types apps, libraries... etc)
-coreVersions=$(eval echo "$rootDir/versions")/*.json
+coreVersions=$(eval echo "$versionsParentDir/versions")/*.json
 localVersions=$(eval echo "$UVER_LOCAL/versions")
 if [ -d "$localVersions" ]; then
   localVersions=$localVersions/*.json
