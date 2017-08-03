@@ -1,3 +1,8 @@
 {
-  "TANK": "0.18.93"
+  "TANK": "0.18.93",
+  "PYLAMA": "7.4.1",
+  "PYTEST": "3.2.0",
+  "CHECKMATE": "0.1.0",
+  "COVERAGE": "4.4.1",
+  "SETUPTOOLS": "36.2.5"
 }
