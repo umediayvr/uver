@@ -1,0 +1,13 @@
+{
+  "NUKE": {
+    "version": "10.5v1",
+    "addons": {
+      "NEATVIDEO": {
+        "options": {
+          "enabled": true
+        }
+      }
+    }
+  },
+  "NEATVIDEO": "4.5"
+}
