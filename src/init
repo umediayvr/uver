@@ -39,10 +39,10 @@ fi
 
 # sourcing scripts
 # core versions (looping through the versions types apps, libraries... etc)
-coreVersions=$(eval echo "$versionsParentDir/versions")/*.json
+coreVersions=$(eval echo "$versionsParentDir/versions")
 localVersions=$(eval echo "$UVER_LOCAL/versions")
 if [ -d "$localVersions" ]; then
-  localVersions=$localVersions/*.json
+  localVersions=$localVersions
 else
   localVersions=""
 fi
@@ -51,8 +51,7 @@ fi
 for coreVersionType in $coreVersions $localVersions; do
     while IFS='=' read -r name version || [[ -n "$name" ]];
     do
-      # translating the format from the versions file followed by:
-      # name=version to enrvironment format name UVER_<$NAME>_VERSION=<$VERSION>
-      export "UVER_${name}_VERSION"=$version
-    done < <($dir/uqueryflatjson $coreVersionType)
+      # convention followed by UVER_<NAME>_VERSION=<VERSION>
+      export "$name"=$version
+    done < <($dir/uvervars $coreVersionType)
 done
