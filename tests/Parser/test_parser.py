@@ -151,3 +151,65 @@ class TestParser(CommonParser):
             success = True
 
         self.assertTrue(success)
+
+    def test_customEnv(self):
+        """Should assing the version passed by the environment."""
+        parser = Parser()
+
+        customEnv = {
+            'UVER_A_VERSION': '14',
+            'UVER_B_VERSION': '15',
+        }
+
+        softwareInfos = {
+            'a': {
+                'version': '10.1',
+                'addons': {
+                    'b': {}
+                }
+            },
+            'b': {
+                'version': '12.1',
+            },
+            'c': {
+                'version': '11.1'
+            }
+        }
+
+        softwareInfosFinal = {
+            'a': {
+                'version': '14',
+                'addons': {
+                    'b': {}
+                }
+            },
+            'b': {
+                'version': '15',
+            },
+            'c': {
+                'version': '11.1'
+            }
+        }
+
+        # adding sotwares & addons to the parser
+        for softwareName, softwareData in softwareInfos.items():
+            parser.addSoftwareInfo(
+                softwareName,
+                softwareData['version']
+            )
+
+            # addons
+            if 'addons' in softwareData:
+                for addonName, addonData in softwareData['addons'].items():
+                    parser.addAddonInfo(
+                        softwareName,
+                        addonName
+                    )
+
+        softwares = parser.softwares(customEnv)
+
+        # checking addons
+        self.checkSoftwareInfo(softwareInfosFinal, softwares)
+
+        # checking addons
+        self.checkAddonsInfo(softwareInfosFinal, softwares)

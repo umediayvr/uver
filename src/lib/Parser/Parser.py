@@ -46,14 +46,18 @@ class Parser(object):
             'options': dict(options)
         }
 
-    def softwares(self):
+    def softwares(self, env={}):
         """
         Return a list of softwares based on the added software/addon info.
+
+        In case there is a version assigned in the input environment, it's
+        going to use that instead of the parsed version. The version
+        in the input env needs to be defined following {@link versioned.uverName}.
         """
         # now creating softwares
         result = []
         for softwareName in self.__softwares.keys():
-            softwareVersion = self.__softwares[softwareName]['version']
+            softwareVersion = self.__softwareVersion(softwareName, env)
             softwareOptions = self.__softwares[softwareName]['options']
 
             # creating a software instance
@@ -66,14 +70,29 @@ class Parser(object):
             self.__setVersionedOptions(software, softwareOptions)
 
             # adding addons to the software
-            self.__addAddonsToSoftware(software)
+            self.__addAddonsToSoftware(software, env)
 
             # adding software to result
             result.append(software)
 
         return result
 
-    def __addAddonsToSoftware(self, software):
+    def __softwareVersion(self, name, env):
+        """
+        Return the version for the input software.
+
+        @private
+        """
+        version = self.__softwares[name]['version']
+
+        # in case there is a version override under the env
+        uverName = Versioned.toUverName(name)
+        if uverName in env:
+            version = env[uverName]
+
+        return version
+
+    def __addAddonsToSoftware(self, software, env):
         """
         Add addons to a software.
 
@@ -95,7 +114,7 @@ class Parser(object):
                         )
                     )
 
-                addonVersion = self.__softwares[addonName]['version']
+                addonVersion = self.__softwareVersion(addonName, env)
                 addonOptions = addonContent['options']
 
                 # creating addon

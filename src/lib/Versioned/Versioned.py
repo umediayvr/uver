@@ -35,9 +35,7 @@ class Versioned(object):
         """
         Return the environment variable name of the versioned.
         """
-        return 'UVER_{0}_VERSION'.format(
-            self.name().upper()
-        )
+        return Versioned.toUverName(self.name())
 
     def setOption(self, name, value):
         """
@@ -70,6 +68,18 @@ class Versioned(object):
         Return the addon name.
         """
         return self.__name
+
+    @staticmethod
+    def toUverName(name):
+        """
+        Convert the input software name to the uver name convention.
+        """
+        assert isinstance(name, basestring), \
+            "Invalid type"
+
+        return 'UVER_{0}_VERSION'.format(
+            name.upper()
+        )
 
     def __setName(self, name):
         """
