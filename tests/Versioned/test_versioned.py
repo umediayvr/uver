@@ -78,6 +78,10 @@ class TestVersioned(unittest.TestCase):
 
         self.assertEqual(len(versioned.optionNames()), 0)
 
+    def test_toUverName(self):
+        """Should return a string converted to the uver convention."""
+        self.assertEqual(Versioned.toUverName('foo'), "UVER_FOO_VERSION")
+
     def test_uverName(self):
         """Should return an uver environment variable based on the versioned name."""
         versioned = Versioned("foo", "1.0")
