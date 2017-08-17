@@ -7,8 +7,11 @@ root = os.path.dirname(
 )
 
 # adding uver from src to the python's path
-sourceFolder = os.path.join(root, "src")
+sourceFolder = os.path.join(root, "src", "lib")
+if not os.path.exists(sourceFolder): # pragma: no cover
+    raise Exception("Can't resolve lib location!")
+
 sys.path.insert(
     1,
-    os.path.join(root, "src")
+    sourceFolder
 )

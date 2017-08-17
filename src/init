@@ -48,10 +48,11 @@ fi
 export UVER_VERSIONS_DIR="$versionsDir"
 
 # prepending uver module to the python path
+uverLib="$dir/lib"
 if [ -z "$PYTHONPATH" ]; then
-  export PYTHONPATH="$dir"
+  export PYTHONPATH="$uverLib"
 else
-  export PYTHONPATH="$dir:$PYTHONPATH"
+  export PYTHONPATH="$uverLib:$PYTHONPATH"
 fi
 
 # sourcing scripts
