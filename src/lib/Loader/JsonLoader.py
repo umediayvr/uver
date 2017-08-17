@@ -1,5 +1,5 @@
 import json
-from Parser import Parser
+from Loader import Loader
 
 class UnexpectedRootContentError(Exception):
     """Unexpected root content error."""
@@ -13,9 +13,9 @@ class UnexpectedAddonContentError(Exception):
 class UnexpectedVersionFormatError(Exception):
     """Unexpected version format error."""
 
-class JsonParser(Parser):
+class JsonLoader(Loader):
     """
-    Parses a list of softwares from a json.
+    Loads a list of softwares from a json.
     """
 
     def addFromJson(self, jsonContents):

@@ -1,8 +1,8 @@
 import unittest
 
-class CommonParser(unittest.TestCase):
+class CommonLoader(unittest.TestCase):
     """
-    Common routines used to check parsed information among the parsers.
+    Common routines used to check parsed information among the loaders.
     """
 
     def checkSoftwareInfo(self, softwareInfos, softwares):

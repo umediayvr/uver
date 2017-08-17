@@ -1,27 +1,27 @@
 import json
 import os
-from src.lib.Parser import JsonDirectoryParser, InvalidDirectoryError
-from CommonParser import CommonParser
+from src.lib.Loader import JsonDirectoryLoader, InvalidDirectoryError
+from CommonLoader import CommonLoader
 
-class TestJsonDirectoryParser(CommonParser):
-    """Test json directory parser object."""
+class TestJsonDirectoryLoader(CommonLoader):
+    """Test json directory loader object."""
 
     __rootPath = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
     __jsonDirectory = os.path.join(__rootPath, 'data', 'json')
 
     def test_constructor(self):
         """Should test the constructor."""
-        JsonDirectoryParser()
+        JsonDirectoryLoader()
 
     def test_emptySoftwares(self):
-        """Should test the result when the parser is empty."""
-        parser = JsonDirectoryParser()
+        """Should test the result when the loader is empty."""
+        loader = JsonDirectoryLoader()
 
-        self.assertEqual(parser.softwares(), [])
+        self.assertEqual(loader.softwares(), [])
 
     def test_addingJsonDirectory(self):
-        """Should test adding a directory with json files to the parser."""
-        parser = JsonDirectoryParser()
+        """Should test adding a directory with json files to the loader."""
+        loader = JsonDirectoryLoader()
 
         softwareInfos = {}
 
@@ -34,11 +34,11 @@ class TestJsonDirectoryParser(CommonParser):
                 for key, value in data.items():
                     softwareInfos[key] = value
 
-        # adding sotwares to the parser
-        parser.addFromJsonDirectory(self.__jsonDirectory)
+        # adding sotwares to the loader
+        loader.addFromJsonDirectory(self.__jsonDirectory)
 
         # checking if the softwares were parsed properly
-        softwares = parser.softwares()
+        softwares = loader.softwares()
         self.checkSoftwareInfo(softwareInfos, softwares)
         self.checkAddonsInfo(softwareInfos, softwares)
 
@@ -46,11 +46,11 @@ class TestJsonDirectoryParser(CommonParser):
         """
         Should fail when passing an invalid directory.
         """
-        parser = JsonDirectoryParser()
+        loader = JsonDirectoryLoader()
 
         success = False
         try:
-            parser.addFromJsonDirectory('/dev/null/invalid')
+            loader.addFromJsonDirectory('/dev/null/invalid')
         except InvalidDirectoryError:
             success = True
 

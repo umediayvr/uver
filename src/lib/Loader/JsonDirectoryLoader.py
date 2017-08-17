@@ -1,11 +1,11 @@
 import os
 import glob
-from JsonParser import JsonParser
+from JsonLoader import JsonLoader
 
 class InvalidDirectoryError(Exception):
     """Invalid Directory Error."""
 
-class JsonDirectoryParser(JsonParser):
+class JsonDirectoryLoader(JsonLoader):
     """
     Parse a list of softwares from a directory containing json files.
     """
@@ -23,7 +23,7 @@ class JsonDirectoryParser(JsonParser):
                 'Invalid directory "{0}"!'.format(directory)
             )
 
-        # collecting the json files and loading them to the parser.
+        # collecting the json files and loading them to the loader.
         for fileName in glob.glob(os.path.join(directory, '*.json')):
             with open(fileName, 'r') as f:
                 contents = '\n'.join(f.readlines())

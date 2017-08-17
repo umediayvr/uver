@@ -1,28 +1,28 @@
 import json
-from src.lib.Parser import \
-    JsonParser, \
+from src.lib.Loader import \
+    JsonLoader, \
     UnexpectedRootContentError, \
     UnexpectedAddonsDataError, \
     UnexpectedAddonContentError, \
     UnexpectedVersionFormatError
-from CommonParser import CommonParser
+from CommonLoader import CommonLoader
 
-class TestJsonParser(CommonParser):
-    """Test json parser object."""
+class TestJsonLoader(CommonLoader):
+    """Test json loader object."""
 
     def test_constructor(self):
         """Should test the constructor."""
-        JsonParser()
+        JsonLoader()
 
     def test_emptySoftwares(self):
-        """Should test the result when the parser is empty."""
-        parser = JsonParser()
+        """Should test the result when the loader is empty."""
+        loader = JsonLoader()
 
-        self.assertEqual(parser.softwares(), [])
+        self.assertEqual(loader.softwares(), [])
 
     def test_addingJson(self):
-        """Should test adding json to the parser."""
-        parser = JsonParser()
+        """Should test adding json to the loader."""
+        loader = JsonLoader()
 
         softwareInfos = {
             'a': {
@@ -44,12 +44,12 @@ class TestJsonParser(CommonParser):
             'c': '10.0.1'
         }
 
-        # adding sotwares to the parser
+        # adding sotwares to the loader
         jsonString = json.dumps(softwareInfos)
-        parser.addFromJson(jsonString)
+        loader.addFromJson(jsonString)
 
         # checking if the softwares were parsed properly
-        softwares = parser.softwares()
+        softwares = loader.softwares()
         self.checkSoftwareInfo(softwareInfos, softwares)
         self.checkAddonsInfo(softwareInfos, softwares)
 
@@ -57,7 +57,7 @@ class TestJsonParser(CommonParser):
         """
         Should fail when json does not have the proper format for the root.
         """
-        parser = JsonParser()
+        loader = JsonLoader()
 
         softwareInfos = [{
             'a': '10.1'
@@ -66,7 +66,7 @@ class TestJsonParser(CommonParser):
 
         success = False
         try:
-            parser.addFromJson(jsonString)
+            loader.addFromJson(jsonString)
         except UnexpectedRootContentError:
             success = True
 
@@ -76,7 +76,7 @@ class TestJsonParser(CommonParser):
         """
         Should fail when json does not have the proper format for the version.
         """
-        parser = JsonParser()
+        loader = JsonLoader()
 
         softwareInfos = {
             'a': ['10.0']
@@ -85,7 +85,7 @@ class TestJsonParser(CommonParser):
 
         success = False
         try:
-            parser.addFromJson(jsonString)
+            loader.addFromJson(jsonString)
         except UnexpectedVersionFormatError:
             success = True
 
@@ -95,7 +95,7 @@ class TestJsonParser(CommonParser):
         """
         Should fail when json does not have the proper format for the addons.
         """
-        parser = JsonParser()
+        loader = JsonLoader()
 
         softwareInfos = {
             'a': {
@@ -109,7 +109,7 @@ class TestJsonParser(CommonParser):
 
         success = False
         try:
-            parser.addFromJson(jsonString)
+            loader.addFromJson(jsonString)
         except UnexpectedAddonsDataError:
             success = True
 
@@ -119,7 +119,7 @@ class TestJsonParser(CommonParser):
         """
         Should fail when json does not have the proper format for the addon itself.
         """
-        parser = JsonParser()
+        loader = JsonLoader()
 
         softwareInfos = {
             'a': {
@@ -134,7 +134,7 @@ class TestJsonParser(CommonParser):
 
         success = False
         try:
-            parser.addFromJson(jsonString)
+            loader.addFromJson(jsonString)
         except UnexpectedAddonContentError:
             success = True
 

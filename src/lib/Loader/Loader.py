@@ -5,9 +5,9 @@ from ..Versioned import Addon
 class AddonNotFoundError(Exception):
     """Addon not found in the softwares error."""
 
-class Parser(object):
+class Loader(object):
     """
-    Abstract parser.
+    Abstract loader.
 
     Returns a list of software instances based on the addon and software
     information (@see softwares)
