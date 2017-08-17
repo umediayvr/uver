@@ -1,4 +1,4 @@
-from src.lib.Loader import Loader, AddonNotFoundError
+from uver.Loader import Loader, AddonNotFoundError
 from CommonLoader import CommonLoader
 
 class TestLoader(CommonLoader):

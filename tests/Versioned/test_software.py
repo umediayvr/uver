@@ -1,5 +1,5 @@
 import unittest
-from src.lib.Versioned import Software, Addon, InvalidAddonError
+from uver.Versioned import Software, Addon, InvalidAddonError
 
 class TestSoftware(unittest.TestCase):
     """Test software object."""

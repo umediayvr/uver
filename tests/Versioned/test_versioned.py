@@ -1,5 +1,5 @@
 import unittest
-from src.lib.Versioned import Versioned, InvalidNameError, InvalidOptionError, InvalidVersionError
+from uver.Versioned import Versioned, InvalidNameError, InvalidOptionError, InvalidVersionError
 
 class TestVersioned(unittest.TestCase):
     """Test versioned object."""

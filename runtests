@@ -1,4 +1,4 @@
 #!/bin/bash
 
 # running all tests
-upython -m unittest discover -v -s "tests" -p 'test_*.py'
+upython -m unittest discover -v
