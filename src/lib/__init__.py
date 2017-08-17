@@ -1,3 +1,3 @@
 import Versioned
-import Parser
+import Loader
 from Query import Query, SoftwareNotFoundError, AddonNotFoundError

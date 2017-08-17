@@ -9,21 +9,18 @@ def outputVars(fileOrDirectory, separator):
     """
     Output the parsed uver var names followed by the version in the stream.
     """
-    uverParser = None
+    uverLoader = uver.Loader.JsonLoader()
 
     # parsing from a file
     if os.path.isfile(fileOrDirectory):
-        uverParser = uver.Parser.JsonParser()
-        with open(fileOrDirectory, 'r') as f:
-            uverParser.addFromJson('\n'.join(f.readlines()))
+        uverLoader.addFromJsonFile(fileOrDirectory)
 
     # parsing from a directory
     else:
-        uverParser = uver.Parser.JsonDirectoryParser()
-        uverParser.addFromJsonDirectory(fileOrDirectory)
+        uverLoader.addFromJsonDirectory(fileOrDirectory)
 
     # oututing result to the stream
-    for software in uverParser.softwares():
+    for software in uverLoader.softwares():
         sys.stdout.write('{key}{separator}{value}\n'.format(
             key=software.uverName(),
             separator=separator,

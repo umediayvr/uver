@@ -32,6 +32,8 @@ dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 # at deployment time the contents of src are moved to the root of the version. Lets
 # detect this behaviour first, otherwise it should fallback to the current structure
 # where versions folder is localized under the root
+# \todo: consider moving this version directory location to an environment
+# variable ($UVER_VERSIONS_DIR)
 versionsParentDir=$dir
 if ! [ -d "$versionsParentDir/versions" ]; then
   versionsParentDir="$( dirname $versionsParentDir )"

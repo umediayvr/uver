@@ -1,22 +1,22 @@
-from src.lib.Parser import Parser, AddonNotFoundError
-from CommonParser import CommonParser
+from src.lib.Loader import Loader, AddonNotFoundError
+from CommonLoader import CommonLoader
 
-class TestParser(CommonParser):
-    """Test parser object."""
+class TestLoader(CommonLoader):
+    """Test loader object."""
 
     def test_constructor(self):
         """Should test the constructor."""
-        Parser()
+        Loader()
 
     def test_emptySoftwares(self):
-        """Should test the result when the parser is empty."""
-        parser = Parser()
+        """Should test the result when the loader is empty."""
+        loader = Loader()
 
-        self.assertEqual(parser.softwares(), [])
+        self.assertEqual(loader.softwares(), [])
 
     def test_softwareInfo(self):
-        """Should test adding parsed software info to the parser."""
-        parser = Parser()
+        """Should test adding parsed software info to the loader."""
+        loader = Loader()
 
         softwareInfos = {
             'a': {
@@ -32,21 +32,21 @@ class TestParser(CommonParser):
             }
         }
 
-        # adding sotwares to the parser
+        # adding sotwares to the loader
         for softwareName, softwareData in softwareInfos.items():
-            parser.addSoftwareInfo(
+            loader.addSoftwareInfo(
                 softwareName,
                 softwareData['version'],
                 softwareData['options'],
             )
 
         # checking if the softwares were parsed properly
-        softwares = parser.softwares()
+        softwares = loader.softwares()
         self.checkSoftwareInfo(softwareInfos, softwares)
 
     def test_addonInfo(self):
-        """Should test adding parsed addon info to the parser."""
-        parser = Parser()
+        """Should test adding parsed addon info to the loader."""
+        loader = Loader()
 
         softwareInfos = {
             'a': {
@@ -84,9 +84,9 @@ class TestParser(CommonParser):
             }
         }
 
-        # adding sotwares & addons to the parser
+        # adding sotwares & addons to the loader
         for softwareName, softwareData in softwareInfos.items():
-            parser.addSoftwareInfo(
+            loader.addSoftwareInfo(
                 softwareName,
                 softwareData['version'],
                 softwareData['options'],
@@ -96,26 +96,26 @@ class TestParser(CommonParser):
             if 'addons' in softwareData:
                 for addonName, addonData in softwareData['addons'].items():
                     if 'options' in addonData:
-                        parser.addAddonInfo(
+                        loader.addAddonInfo(
                             softwareName,
                             addonName,
                             addonData['options']
                         )
                     else:
-                        parser.addAddonInfo(
+                        loader.addAddonInfo(
                             softwareName,
                             addonName
                         )
 
         # checking if the softwares were properly parsed
-        softwares = parser.softwares()
+        softwares = loader.softwares()
 
         # checking addons
         self.checkAddonsInfo(softwareInfos, softwares)
 
     def test_addonNotFound(self):
         """Should fail when addon is not declared as software."""
-        parser = Parser()
+        loader = Loader()
 
         softwareInfos = {
             'a': {
@@ -129,9 +129,9 @@ class TestParser(CommonParser):
             }
         }
 
-        # adding sotwares & addons to the parser
+        # adding sotwares & addons to the loader
         for softwareName, softwareData in softwareInfos.items():
-            parser.addSoftwareInfo(
+            loader.addSoftwareInfo(
                 softwareName,
                 softwareData['version']
             )
@@ -139,14 +139,14 @@ class TestParser(CommonParser):
             # addons
             if 'addons' in softwareData:
                 for addonName, addonData in softwareData['addons'].items():
-                    parser.addAddonInfo(
+                    loader.addAddonInfo(
                         softwareName,
                         addonName
                     )
 
         success = False
         try:
-            parser.softwares()
+            loader.softwares()
         except AddonNotFoundError:
             success = True
 
@@ -154,7 +154,7 @@ class TestParser(CommonParser):
 
     def test_customEnv(self):
         """Should assing the version passed by the environment."""
-        parser = Parser()
+        loader = Loader()
 
         customEnv = {
             'UVER_A_VERSION': '14',
@@ -191,9 +191,9 @@ class TestParser(CommonParser):
             }
         }
 
-        # adding sotwares & addons to the parser
+        # adding sotwares & addons to the loader
         for softwareName, softwareData in softwareInfos.items():
-            parser.addSoftwareInfo(
+            loader.addSoftwareInfo(
                 softwareName,
                 softwareData['version']
             )
@@ -201,12 +201,12 @@ class TestParser(CommonParser):
             # addons
             if 'addons' in softwareData:
                 for addonName, addonData in softwareData['addons'].items():
-                    parser.addAddonInfo(
+                    loader.addAddonInfo(
                         softwareName,
                         addonName
                     )
 
-        softwares = parser.softwares(customEnv)
+        softwares = loader.softwares(customEnv)
 
         # checking addons
         self.checkSoftwareInfo(softwareInfosFinal, softwares)
