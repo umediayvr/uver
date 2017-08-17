@@ -1,13 +1,13 @@
 {
-  "NUKE": {
+  "nuke": {
     "version": "10.5v1",
     "addons": {
-      "NEATVIDEO": {
+      "neatvideo": {
         "options": {
-          "enabled": true
+          "enabled": false
         }
       }
     }
   },
-  "NEATVIDEO": "4.5"
+  "neatvideo": "4.5"
 }
