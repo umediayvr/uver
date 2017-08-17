@@ -47,6 +47,13 @@ if ! [ -d "$versionsDir" ]; then
 fi
 export UVER_VERSIONS_DIR="$versionsDir"
 
+# prepending uver module to the python path
+if [ -z "$PYTHONPATH" ]; then
+  export PYTHONPATH="$dir"
+else
+  export PYTHONPATH="$dir:$PYTHONPATH"
+fi
+
 # sourcing scripts
 # core versions (looping through the versions types apps, libraries... etc)
 coreVersions="$UVER_VERSIONS_DIR"
