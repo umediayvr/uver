@@ -1,14 +1,20 @@
 import json
+import os
 from src.lib.Loader import \
     JsonLoader, \
     UnexpectedRootContentError, \
     UnexpectedAddonsDataError, \
     UnexpectedAddonContentError, \
-    UnexpectedVersionFormatError
+    UnexpectedVersionFormatError, \
+    InvalidFileError, \
+    InvalidDirectoryError
 from CommonLoader import CommonLoader
 
 class TestJsonLoader(CommonLoader):
     """Test json loader object."""
+
+    __rootPath = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
+    __jsonDirectory = os.path.join(__rootPath, 'data', 'json')
 
     def test_constructor(self):
         """Should test the constructor."""
@@ -136,6 +142,82 @@ class TestJsonLoader(CommonLoader):
         try:
             loader.addFromJson(jsonString)
         except UnexpectedAddonContentError:
+            success = True
+
+        self.assertTrue(success)
+
+    def test_addingJsonDirectory(self):
+        """Should test adding a directory with json files to the loader."""
+        loader = JsonLoader()
+
+        softwareInfos = {}
+
+        simpleFilePath = os.path.join(self.__jsonDirectory, 'simple.json')
+        complexFilePath = os.path.join(self.__jsonDirectory, 'complex.json')
+        externalAddons = os.path.join(self.__jsonDirectory, 'externalAddons.json')
+        for filePath in [simpleFilePath, complexFilePath, externalAddons]:
+            with open(filePath, 'r') as f:
+                data = json.load(f)
+                for key, value in data.items():
+                    softwareInfos[key] = value
+
+        # adding sotwares to the loader
+        loader.addFromJsonDirectory(self.__jsonDirectory)
+
+        # checking if the softwares were parsed properly
+        softwares = loader.softwares()
+        self.checkSoftwareInfo(softwareInfos, softwares)
+        self.checkAddonsInfo(softwareInfos, softwares)
+
+    def test_addingJsonFile(self):
+        """Should test adding json files to the loader."""
+        loader = JsonLoader()
+
+        softwareInfos = {}
+
+        simpleFilePath = os.path.join(self.__jsonDirectory, 'simple.json')
+        complexFilePath = os.path.join(self.__jsonDirectory, 'complex.json')
+        externalAddons = os.path.join(self.__jsonDirectory, 'externalAddons.json')
+        for filePath in [simpleFilePath, complexFilePath, externalAddons]:
+            with open(filePath, 'r') as f:
+                data = json.load(f)
+                for key, value in data.items():
+                    softwareInfos[key] = value
+
+        # adding sotwares to the loader
+        loader.addFromJsonFile(simpleFilePath)
+        loader.addFromJsonFile(complexFilePath)
+        loader.addFromJsonFile(externalAddons)
+
+        # checking if the softwares were parsed properly
+        softwares = loader.softwares()
+        self.checkSoftwareInfo(softwareInfos, softwares)
+        self.checkAddonsInfo(softwareInfos, softwares)
+
+    def test_invalidFile(self):
+        """
+        Should fail when passing an invalid file path.
+        """
+        loader = JsonLoader()
+
+        success = False
+        try:
+            loader.addFromJsonFile('/dev/null/invalid.json')
+        except InvalidFileError:
+            success = True
+
+        self.assertTrue(success)
+
+    def test_invalidDirectory(self):
+        """
+        Should fail when passing an invalid directory.
+        """
+        loader = JsonLoader()
+
+        success = False
+        try:
+            loader.addFromJsonDirectory('/dev/null/invalid')
+        except InvalidDirectoryError:
             success = True
 
         self.assertTrue(success)

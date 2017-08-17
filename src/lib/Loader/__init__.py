@@ -4,5 +4,6 @@ from JsonLoader import\
     UnexpectedRootContentError, \
     UnexpectedAddonsDataError, \
     UnexpectedAddonContentError, \
-    UnexpectedVersionFormatError
-from JsonDirectoryLoader import JsonDirectoryLoader, InvalidDirectoryError
+    UnexpectedVersionFormatError, \
+    InvalidFileError, \
+    InvalidDirectoryError

@@ -1,3 +1,5 @@
+import os
+import glob
 import json
 from Loader import Loader
 
@@ -12,6 +14,12 @@ class UnexpectedAddonContentError(Exception):
 
 class UnexpectedVersionFormatError(Exception):
     """Unexpected version format error."""
+
+class InvalidDirectoryError(Exception):
+    """Invalid directory Error."""
+
+class InvalidFileError(Exception):
+    """Invalid file Error."""
 
 class JsonLoader(Loader):
     """
@@ -54,6 +62,40 @@ class JsonLoader(Loader):
 
         for softwareName, softwareContents in contents.items():
             self.__addParsedSoftware(softwareName, softwareContents)
+
+    def addFromJsonFile(self, fileName):
+        """
+        Add json from a file.
+
+        The json file need to follow the format expected
+        by {@link addFromJson}.
+        """
+        # making sure it's a valid file
+        if not (os.path.exists(fileName) and os.path.isfile(fileName)):
+            raise InvalidFileError(
+                'Invalid file "{0}"!'.format(fileName)
+            )
+
+        with open(fileName, 'r') as f:
+            contents = '\n'.join(f.readlines())
+            self.addFromJson(contents)
+
+    def addFromJsonDirectory(self, directory):
+        """
+        Add json from inside of a directory with json files.
+
+        The json file need to follow the format expected
+        by {@link addFromJson}.
+        """
+        # making sure it's a valid directory
+        if not (os.path.exists(directory) and os.path.isdir(directory)):
+            raise InvalidDirectoryError(
+                'Invalid directory "{0}"!'.format(directory)
+            )
+
+        # collecting the json files and loading them to the loader.
+        for fileName in glob.glob(os.path.join(directory, '*.json')):
+            self.addFromJsonFile(fileName)
 
     def __addParsedSoftware(self, softwareName, softwareContents):
         """
