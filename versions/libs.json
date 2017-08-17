@@ -1,8 +1,8 @@
 {
-  "TANK": "0.18.93",
-  "PYLAMA": "7.4.1",
-  "PYTEST": "3.2.0",
-  "CHECKMATE": "0.1.0",
-  "COVERAGE": "4.4.1",
-  "SETUPTOOLS": "36.2.5"
+  "tank": "0.18.93",
+  "pylama": "7.4.1",
+  "pytest": "3.2.0",
+  "checkmate": "0.1.0",
+  "coverage": "4.4.1",
+  "setuptools": "36.2.5"
 }

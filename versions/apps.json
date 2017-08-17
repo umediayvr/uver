@@ -1,11 +1,11 @@
 {
-  "SHOTGUNDESKTOP": "fc20",
-  "FIREFOX": "54.0.1",
-  "UPYTHON": "2.7.13",
-  "DEADLINE": "9.0.3.0",
-  "ATOM": "1.3.15",
-  "RV": "7.2.0",
-  "MOCHAPRO": "5.2.1",
-  "FFMPEG": "N_86731_g8bf9572e9a_static",
-  "REZ": "2.13.1"
+  "shotgundesktop": "fc20",
+  "firefox": "54.0.1",
+  "upython": "2.7.13",
+  "deadline": "9.0.3.0",
+  "atom": "1.3.15",
+  "rv": "7.2.0",
+  "mochapro": "5.2.1",
+  "ffmpeg": "N_86731_g8bf9572e9a_static",
+  "rez": "2.13.1"
 }
