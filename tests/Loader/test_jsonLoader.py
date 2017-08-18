@@ -1,6 +1,6 @@
 import json
 import os
-from src.lib.Loader import \
+from uver.Loader import \
     JsonLoader, \
     UnexpectedRootContentError, \
     UnexpectedAddonsDataError, \

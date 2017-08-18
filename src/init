@@ -29,20 +29,36 @@
 # getting current script folder
 dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
+# avoiding to prepended to the system path for every single bash session by making
+# sure bin is not included to the path yet.
+uverBinPath+="$dir/bin"
+if ! [ "$UVER_BIN_PATH" == "$uverBinPath" ]; then
+  export UVER_BIN_PATH=$uverBinPath
+  export PATH="$uverBinPath:$PATH"
+fi
+
+# setting UVER_VERSIONS_DIR:
 # at deployment time the contents of src are moved to the root of the version. Lets
 # detect this behaviour first, otherwise it should fallback to the current structure
-# where versions folder is localized under the root
-# \todo: consider moving this version directory location to an environment
-# variable ($UVER_VERSIONS_DIR)
-versionsParentDir=$dir
-if ! [ -d "$versionsParentDir/versions" ]; then
-  versionsParentDir="$( dirname $versionsParentDir )"
+# where versions folder is localized under the root.
+versionsDir="$dir/versions"
+if ! [ -d "$versionsDir" ]; then
+  versionsDir="$( dirname $dir )/versions"
+fi
+export UVER_VERSIONS_DIR="$versionsDir"
+
+# prepending uver module to the python path
+uverLib="$dir/lib"
+if [ -z "$PYTHONPATH" ]; then
+  export PYTHONPATH="$uverLib"
+else
+  export PYTHONPATH="$uverLib:$PYTHONPATH"
 fi
 
 # sourcing scripts
 # core versions (looping through the versions types apps, libraries... etc)
-coreVersions=$(eval echo "$versionsParentDir/versions")
-localVersions=$(eval echo "$UVER_LOCAL/versions")
+coreVersions="$UVER_VERSIONS_DIR"
+localVersions="$UVER_LOCAL/versions"
 if [ -d "$localVersions" ]; then
   localVersions=$localVersions
 else
@@ -55,5 +71,5 @@ for coreVersionType in $coreVersions $localVersions; do
     do
       # convention followed by UVER_<NAME>_VERSION=<VERSION>
       export "$name"=$version
-    done < <($dir/uvervars $coreVersionType)
+    done < <(uvervars $coreVersionType)
 done

@@ -1,5 +1,5 @@
 import unittest
-from src.lib.Versioned import Addon
+from uver.Versioned import Addon
 
 class TestAddon(unittest.TestCase):
     """Test addon object."""

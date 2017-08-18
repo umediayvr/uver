@@ -1,6 +1,6 @@
 import unittest
-from src.lib.Versioned import Software, Addon
-from src.lib import Query, SoftwareNotFoundError, AddonNotFoundError
+from uver.Versioned import Software, Addon
+from uver import Query, SoftwareNotFoundError, AddonNotFoundError
 
 class TestQuery(unittest.TestCase):
     """Test query object."""
