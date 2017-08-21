@@ -9,8 +9,6 @@
 #        '------.     .------'
 #                |   |
 #                |   |
-#                |   |
-#                |   |
 #     /\         |   |         /\
 #    /_ \        /   \        / _\
 #      \ '.    .'     '.    .' /
@@ -37,16 +35,6 @@ if ! [ "$UVER_BIN_PATH" == "$uverBinPath" ]; then
   export PATH="$uverBinPath:$PATH"
 fi
 
-# setting UVER_VERSIONS_DIR:
-# at deployment time the contents of src are moved to the root of the version. Lets
-# detect this behaviour first, otherwise it should fallback to the current structure
-# where versions folder is localized under the root.
-versionsDir="$dir/versions"
-if ! [ -d "$versionsDir" ]; then
-  versionsDir="$( dirname $dir )/versions"
-fi
-export UVER_VERSIONS_DIR="$versionsDir"
-
 # prepending uver module to the python path
 uverLib="$dir/lib"
 if [ -z "$PYTHONPATH" ]; then
@@ -55,21 +43,22 @@ else
   export PYTHONPATH="$uverLib:$PYTHONPATH"
 fi
 
-# sourcing scripts
-# core versions (looping through the versions types apps, libraries... etc)
-coreVersions="$UVER_VERSIONS_DIR"
-localVersions="$UVER_LOCAL/versions"
-if [ -d "$localVersions" ]; then
-  localVersions=$localVersions
+# making sure $UVER_VERSIONS_DIR is defined properly
+if ! [ -d "$UVER_VERSIONS_DIR" ]; then
+  echo "uver error: Could not find directory defined by \$UVER_VERSIONS_DIR" >&2
 else
-  localVersions=""
-fi
+  coreVersions="$UVER_VERSIONS_DIR"
+  localVersions="$UVER_LOCAL/versions"
+  if ! [ -d "$localVersions" ]; then
+    localVersions=""
+  fi
 
-# setting versions as environment variables
-for coreVersionType in $coreVersions $localVersions; do
-    while IFS='=' read -r name version || [[ -n "$name" ]];
-    do
-      # convention followed by UVER_<NAME>_VERSION=<VERSION>
-      export "$name"=$version
-    done < <(uvervars $coreVersionType)
-done
+  # setting versions as environment variables
+  for coreVersionType in $coreVersions $localVersions; do
+      while IFS='=' read -r name version || [[ -n "$name" ]];
+      do
+        # convention followed by <UVER_NAME_VERSION>=<VERSION>
+        export "$name"=$version
+      done < <(uvervars $coreVersionType)
+  done
+fi

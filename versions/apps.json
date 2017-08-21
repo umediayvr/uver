@@ -11,5 +11,15 @@
   "rv": "7.2.0",
   "mochapro": "5.2.1",
   "ffmpeg": "N_86731_g8bf9572e9a_static",
-  "rez": "2.13.1"
+  "rez": "2.13.1",
+  "nuke": {
+    "version": "10.5v1",
+    "addons": {
+      "neatvideo": {
+        "options": {
+          "enabled": false
+        }
+      }
+    }
+  }
 }
