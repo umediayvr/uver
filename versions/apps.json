@@ -1,7 +1,21 @@
 {
   "shotgundesktop": "fc20",
   "firefox": "54.0.1",
-  "upython": "2.7.13",
+  "upython": {
+    "version": "2.7.13",
+    "addons": {
+      "pyopenexr": {
+        "options": {
+          "enabled": true
+        }
+      },
+      "tank": {
+        "options": {
+          "enabled": true
+        }
+      }
+    }
+  },
 
   "deadlinecommand": "9.0.3.0",
   "deadlinemonitor": "9.0.3.0",
