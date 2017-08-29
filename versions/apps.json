@@ -1,10 +1,26 @@
 {
   "shotgundesktop": "fc20",
   "firefox": "54.0.1",
+  "cmake": "3.9.1",
   "upython": {
-    "version": "2.7.13",
+    "version": "3.6.2",
     "addons": {
-      "pyopenexr": {
+      "pyside2": {
+        "options": {
+          "enabled": true
+        }
+      },
+      "openimageio": {
+        "options": {
+          "enabled": true
+        }
+      },
+      "opencolorio": {
+        "options": {
+          "enabled": true
+        }
+      },
+      "setuptools": {
         "options": {
           "enabled": true
         }

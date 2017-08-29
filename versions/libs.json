@@ -1,11 +1,18 @@
 {
+  "qt": "5.6.1",
+  "qtcreator": "5.6.1",
+
+  "pyside2": "5.6",
+  "boost": "1.61.0",
+  "png": "1.6.30",
   "tank": "0.18.93",
   "pylama": "7.4.1",
   "pytest": "3.2.0",
   "checkmate": "0.1.0",
   "coverage": "4.4.1",
   "setuptools": "36.2.5",
-  "pyopenexr": "1.2.0",
+  "openimageio": "1.7.16",
+  "opencolorio": "1.0.9",
   "openexr": "2.2.0",
   "ilmbase": "2.2.0"
 }
