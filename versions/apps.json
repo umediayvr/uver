@@ -1,7 +1,37 @@
 {
   "shotgundesktop": "fc20",
   "firefox": "54.0.1",
-  "upython": "2.7.13",
+  "cmake": "3.9.1",
+  "upython": {
+    "version": "3.6.2",
+    "addons": {
+      "pyside2": {
+        "options": {
+          "enabled": true
+        }
+      },
+      "openimageio": {
+        "options": {
+          "enabled": true
+        }
+      },
+      "opencolorio": {
+        "options": {
+          "enabled": true
+        }
+      },
+      "setuptools": {
+        "options": {
+          "enabled": true
+        }
+      },
+      "tank": {
+        "options": {
+          "enabled": true
+        }
+      }
+    }
+  },
 
   "deadlinecommand": "9.0.3.0",
   "deadlinemonitor": "9.0.3.0",
