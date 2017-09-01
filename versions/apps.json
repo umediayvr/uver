@@ -54,7 +54,7 @@
       },
       "eddy": {
         "options": {
-          "enabled": false
+          "enabled": true
         }
       }
     }
