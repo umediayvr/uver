@@ -51,6 +51,11 @@
         "options": {
           "enabled": false
         }
+      },
+      "eddy": {
+        "options": {
+          "enabled": false
+        }
       }
     }
   }
