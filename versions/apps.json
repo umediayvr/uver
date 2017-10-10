@@ -45,6 +45,7 @@
   "mochapro": "5.2.1",
   "ffmpeg": "N_86731_g8bf9572e9a_static",
   "rez": "2.13.1",
+  "xnview": "0.87",
   "nuke": {
     "version": "10.5v1",
     "addons": {
