@@ -46,6 +46,16 @@
   "ffmpeg": "N_86731_g8bf9572e9a_static",
   "rez": "2.13.1",
   "xnview": "0.87",
+  "maya": {
+    "version": "2018",
+    "addons": {
+      "mtoa": {
+        "options": {
+          "enabled": true
+        }
+      }
+    }
+  },
   "nuke": {
     "version": "10.5v1",
     "addons": {
