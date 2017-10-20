@@ -53,6 +53,11 @@
         "options": {
           "enabled": true
         }
+      },
+      "mayatools": {
+        "options": {
+          "enabled": true
+        }
       }
     }
   },
