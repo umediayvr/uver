@@ -48,13 +48,9 @@ if ! [ -d "$UVER_VERSIONS_DIR" ]; then
   echo "uver error: Could not find directory defined by \$UVER_VERSIONS_DIR" >&2
 else
   coreVersions="$UVER_VERSIONS_DIR"
-  localVersions="$UVER_LOCAL/versions"
-  if ! [ -d "$localVersions" ]; then
-    localVersions=""
-  fi
 
   # setting versions as environment variables
-  for coreVersionType in $coreVersions $localVersions; do
+  for coreVersionType in $coreVersions; do
       while IFS='=' read -r name version || [[ -n "$name" ]];
       do
         # convention followed by <UVER_NAME_VERSION>=<VERSION>
