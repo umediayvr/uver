@@ -1,5 +1,11 @@
 import re
 
+# compatibility with python 2/3
+try:
+    basestring
+except NameError:
+    basestring = str
+
 class InvalidNameError(Exception):
     """Invalid name error."""
 

@@ -1,5 +1,5 @@
-from Versioned import Versioned
-from Addon import Addon
+from .Versioned import Versioned
+from .Addon import Addon
 
 class InvalidAddonError(Exception):
     """Invalid addon error."""

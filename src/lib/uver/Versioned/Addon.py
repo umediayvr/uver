@@ -1,4 +1,4 @@
-from Versioned import Versioned
+from .Versioned import Versioned
 
 class Addon(Versioned):
     """
