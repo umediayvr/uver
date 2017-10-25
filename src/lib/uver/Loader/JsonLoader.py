@@ -1,7 +1,13 @@
 import os
 import glob
 import json
-from Loader import Loader
+from .Loader import Loader
+
+# compatibility with python 2/3
+try:
+    basestring
+except NameError:
+    basestring = str
 
 class UnexpectedRootContentError(Exception):
     """Unexpected root content error."""

@@ -1,5 +1,5 @@
-from Loader import Loader, AddonNotFoundError
-from JsonLoader import\
+from .Loader import Loader, AddonNotFoundError
+from .JsonLoader import\
     JsonLoader, \
     UnexpectedRootContentError, \
     UnexpectedAddonsDataError, \

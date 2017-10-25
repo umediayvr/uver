@@ -1,3 +1,3 @@
-import Versioned
-import Loader
-from Query import Query, SoftwareNotFoundError, AddonNotFoundError
+from . import Versioned
+from . import Loader
+from .Query import Query, SoftwareNotFoundError, AddonNotFoundError
