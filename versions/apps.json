@@ -33,6 +33,7 @@
       }
     }
   },
+  "deadlinelauncher": "9.0.3.0",
   "deadlinecommand": "9.0.3.0",
   "deadlinemonitor": "9.0.3.0",
   "deadlineslave": "9.0.3.0",
