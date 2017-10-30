@@ -76,6 +76,7 @@
       }
     }
   },
+  "mari": "3.3v1",
   "nuke": {
     "version": "10.5v1",
     "addons": {
