@@ -33,6 +33,7 @@
       }
     }
   },
+  "deadlinelauncher": "9.0.3.0",
   "deadlinecommand": "9.0.3.0",
   "deadlinemonitor": "9.0.3.0",
   "deadlineslave": "9.0.3.0",
@@ -53,6 +54,7 @@
   "ffmpeg": "N_86731_g8bf9572e9a_static",
   "rez": "2.13.1",
   "xnview": "0.87",
+  "gcc": "5.4.0",
   "qbs": "1.9.1",
   "maya": {
     "version": "2018",
@@ -74,6 +76,8 @@
       }
     }
   },
+  "silhouette": "6.1.4",
+  "mari": "3.3v1",
   "nuke": {
     "version": "10.5v1",
     "addons": {
