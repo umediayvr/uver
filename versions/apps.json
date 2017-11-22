@@ -56,6 +56,7 @@
   "xnview": "0.87",
   "gcc": "5.4.0",
   "qbs": "1.9.1",
+  "mudbox": "2018",
   "maya": {
     "version": "2018",
     "addons": {
