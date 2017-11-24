@@ -51,6 +51,15 @@ Project {
       }
 
       Group {
+          name: "Info File"
+          files: [
+            "info.json"
+          ]
+          qbs.install: true
+          qbs.installSourceBase: "./"
+      }
+
+      Group {
           name: "Active Versions"
           files: [
             "versions/**"
