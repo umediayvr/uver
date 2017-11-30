@@ -87,6 +87,11 @@
           "enabled": true
         }
       },
+      "nuketools": {
+        "options": {
+          "enabled": true
+        }
+      },
       "neatvideo": {
         "options": {
           "enabled": false
