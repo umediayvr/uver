@@ -96,11 +96,6 @@
         "options": {
           "enabled": false
         }
-      },
-      "eddy": {
-        "options": {
-          "enabled": true
-        }
       }
     }
   }
