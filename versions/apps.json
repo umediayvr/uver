@@ -3,6 +3,7 @@
   "firefox": "54.0.1",
   "cmake": "3.9.1",
   "gaffer": "0.40.0.0",
+  "katana": "2.6v4",
   "upython": {
     "version": "3.6.2",
     "addons": {
