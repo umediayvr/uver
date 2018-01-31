@@ -97,6 +97,11 @@
         "options": {
           "enabled": false
         }
+      },
+      "ingestor": {
+        "options": {
+          "enabled": true
+        }
       }
     }
   }
