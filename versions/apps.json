@@ -26,11 +26,6 @@
         "options": {
           "enabled": true
         }
-      },
-      "tank": {
-        "options": {
-          "enabled": true
-        }
       }
     }
   },
@@ -41,6 +36,11 @@
   "rv": {
     "version": "7.2.0",
     "addons": {
+      "ushotgun": {
+        "options": {
+          "enabled": true
+        }
+      },
       "basetools": {
         "options": {
           "enabled": true
@@ -61,6 +61,11 @@
   "maya": {
     "version": "2018",
     "addons": {
+      "ushotgun": {
+        "options": {
+          "enabled": true
+        }
+      },
       "mtoa": {
         "options": {
           "enabled": true
@@ -83,6 +88,11 @@
   "nuke": {
     "version": "10.5v1",
     "addons": {
+      "ushotgun": {
+        "options": {
+          "enabled": true
+        }
+      },
       "basetools": {
         "options": {
           "enabled": true
