@@ -2,7 +2,21 @@
   "shotgundesktop": "fc20",
   "firefox": "57.0.4",
   "cmake": "3.9.1",
-  "gaffer": "0.40.0.0",
+  "gaffer": {
+    "version": "0.40.0.0",
+    "addons": {
+      "shotgun": {
+        "options": {
+          "enabled": true
+        }
+      },
+      "ushotgun": {
+        "options": {
+          "enabled": true
+        }
+      }
+    }
+  },
   "katana": "2.6v4",
   "upython": {
     "version": "3.6.2",
@@ -36,6 +50,11 @@
   "rv": {
     "version": "7.2.0",
     "addons": {
+      "shotgun": {
+        "options": {
+          "enabled": true
+        }
+      },
       "ushotgun": {
         "options": {
           "enabled": true
@@ -61,6 +80,11 @@
   "maya": {
     "version": "2018",
     "addons": {
+      "shotgun": {
+        "options": {
+          "enabled": true
+        }
+      },
       "ushotgun": {
         "options": {
           "enabled": true
@@ -88,6 +112,11 @@
   "nuke": {
     "version": "11.1v1",
     "addons": {
+      "shotgun": {
+        "options": {
+          "enabled": true
+        }
+      },
       "ushotgun": {
         "options": {
           "enabled": true

@@ -14,5 +14,6 @@
   "opencolorio": "1.0.9",
   "openexr": "2.2.0",
   "ilmbase": "2.2.0",
-  "ushotgun": "0.1.0"
+  "ushotgun": "0.1.0",
+  "shotgun": "3.0.35"
 }
