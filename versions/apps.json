@@ -60,6 +60,11 @@
           "enabled": true
         }
       },
+      "rvtools": {
+        "options": {
+          "enabled": true
+        }
+      },
       "basetools": {
         "options": {
           "enabled": true
