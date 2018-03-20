@@ -1,6 +1,7 @@
 {
   "shotgundesktop": "fc20",
   "firefox": "59.0.1",
+  "slack": "3.0.5",
   "cmake": "3.9.1",
   "gaffer": {
     "version": "0.40.0.0",
