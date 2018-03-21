@@ -138,6 +138,11 @@
           "enabled": true
         }
       },
+      "pgbokeh": {
+        "options": {
+          "enabled": true
+        }
+      },
       "neatvideo": {
         "options": {
           "enabled": true
