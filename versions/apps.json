@@ -133,6 +133,11 @@
           "enabled": true
         }
       },
+      "opticalFlares": {
+        "options": {
+          "enabled": true
+        }
+      },
       "nuketools": {
         "options": {
           "enabled": true
