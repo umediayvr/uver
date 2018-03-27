@@ -133,7 +133,7 @@
           "enabled": true
         }
       },
-      "opticalFlares": {
+      "opticalflares": {
         "options": {
           "enabled": true
         }
