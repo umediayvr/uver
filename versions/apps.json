@@ -41,6 +41,11 @@
         "options": {
           "enabled": true
         }
+      },
+      "ingestor": {
+        "options": {
+          "enabled": true
+        }
       }
     }
   },
