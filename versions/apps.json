@@ -162,6 +162,11 @@
         "options": {
           "enabled": true
         }
+      },
+      "cryptomatte": {
+        "options": {
+          "enabled": true
+        }
       }
     }
   }
