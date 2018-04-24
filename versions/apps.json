@@ -71,6 +71,11 @@
           "enabled": true
         }
       },
+      "ingestor": {
+        "options": {
+          "enabled": true
+        }
+      },
       "basetools": {
         "options": {
           "enabled": true
