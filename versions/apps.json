@@ -1,5 +1,14 @@
 {
-  "shotgundesktop": "fc20",
+  "shotgundesktop": {
+    "version": "fc20",
+    "addons": {
+      "ingestor": {
+        "options": {
+          "enabled": true
+        }
+      }
+    }
+  },
   "firefox": "59.0.1",
   "slack": "3.0.5",
   "cmake": "3.9.1",
