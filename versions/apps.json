@@ -93,7 +93,7 @@
     }
   },
   "rvio": "7.2.0",
-  "ingestor": "0.20.1",
+  "ingestor": "0.21.0",
   "atom": "1.25.1",
   "mochapro": "5.2.1",
   "ffmpeg": "N_86731_g8bf9572e9a_static",
