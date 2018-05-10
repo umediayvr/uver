@@ -36,6 +36,11 @@
           "enabled": true
         }
       },
+      "psycopg": {
+        "options": {
+          "enabled": true
+        }
+      },
       "openimageio": {
         "options": {
           "enabled": true
