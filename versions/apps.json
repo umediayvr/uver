@@ -1,192 +1,213 @@
 {
-  "shotgundesktop": {
-    "version": "fc20",
-    "addons": {
-      "ingestor": {
-        "options": {
-          "enabled": true
+    "shotgundesktop": {
+        "version": "fc20",
+        "addons": {
+            "ingestor": {
+                "options": {
+                    "enabled": true
+                }
+            },
+            "centipede": {
+                "options": {
+                    "enabled": true
+                }
+            }
         }
-      }
+    },
+    "firefox": "59.0.1",
+    "slack": "3.0.5",
+    "cmake": "3.9.1",
+    "gaffer": {
+        "version": "0.40.0.0",
+        "addons": {
+            "shotgun": {
+                "options": {
+                    "enabled": true
+                }
+            },
+            "ushotgun": {
+                "options": {
+                    "enabled": true
+                }
+            }
+        }
+    },
+    "katana": "2.6v4",
+    "upython": {
+        "version": "3.6.2",
+        "addons": {
+            "pyside2": {
+                "options": {
+                    "enabled": true
+                }
+            },
+            "psycopg": {
+                "options": {
+                    "enabled": true
+                }
+            },
+            "openimageio": {
+                "options": {
+                    "enabled": true
+                }
+            },
+            "opencolorio": {
+                "options": {
+                    "enabled": true
+                }
+            },
+            "setuptools": {
+                "options": {
+                    "enabled": true
+                }
+            },
+            "ingestor": {
+                "options": {
+                    "enabled": true
+                }
+            },
+            "centipede": {
+                "options": {
+                    "enabled": true
+                }
+            }
+        }
+    },
+    "deadlinelauncher": "9.0.3.0",
+    "deadlinecommand": "9.0.3.0",
+    "deadlinemonitor": "9.0.3.0",
+    "deadlineslave": "9.0.3.0",
+    "rv": {
+        "version": "7.2.0",
+        "addons": {
+            "shotgun": {
+                "options": {
+                    "enabled": true
+                }
+            },
+            "ushotgun": {
+                "options": {
+                    "enabled": true
+                }
+            },
+            "rvtools": {
+                "options": {
+                    "enabled": true
+                }
+            },
+            "ingestor": {
+                "options": {
+                    "enabled": true
+                }
+            },
+            "centipede": {
+                "options": {
+                    "enabled": true
+                }
+            },
+            "basetools": {
+                "options": {
+                    "enabled": true
+                }
+            }
+        }
+    },
+    "rvio": "7.2.0",
+    "ingestor": "0.21.0",
+    "centipede": "0.21.0",
+    "atom": "1.25.1",
+    "mochapro": "5.2.1",
+    "ffmpeg": "N_86731_g8bf9572e9a_static",
+    "rez": "2.13.1",
+    "xnview": "0.87",
+    "gcc": "5.4.0",
+    "qbs": "1.8.1",
+    "mudbox": "2018",
+    "maya": {
+        "version": "2018",
+        "addons": {
+            "shotgun": {
+                "options": {
+                    "enabled": true
+                }
+            },
+            "ushotgun": {
+                "options": {
+                    "enabled": true
+                }
+            },
+            "mtoa": {
+                "options": {
+                    "enabled": true
+                }
+            },
+            "basetools": {
+                "options": {
+                    "enabled": true
+                }
+            },
+            "mayatools": {
+                "options": {
+                    "enabled": true
+                }
+            }
+        }
+    },
+    "silhouette": "6.1.7",
+    "mari": "3.3v1",
+    "nuke": {
+        "version": "11.1v1",
+        "addons": {
+            "shotgun": {
+                "options": {
+                    "enabled": true
+                }
+            },
+            "ushotgun": {
+                "options": {
+                    "enabled": true
+                }
+            },
+            "basetools": {
+                "options": {
+                    "enabled": true
+                }
+            },
+            "opticalflares": {
+                "options": {
+                    "enabled": true
+                }
+            },
+            "nuketools": {
+                "options": {
+                    "enabled": true
+                }
+            },
+            "pgbokeh": {
+                "options": {
+                    "enabled": true
+                }
+            },
+            "neatvideo": {
+                "options": {
+                    "enabled": true
+                }
+            },
+            "ingestor": {
+                "options": {
+                    "enabled": true
+                }
+            },
+            "centipede": {
+                "options": {
+                    "enabled": true
+                }
+            },
+            "cryptomatte": {
+                "options": {
+                    "enabled": true
+                }
+            }
+        }
     }
-  },
-  "firefox": "59.0.1",
-  "slack": "3.0.5",
-  "cmake": "3.9.1",
-  "gaffer": {
-    "version": "0.40.0.0",
-    "addons": {
-      "shotgun": {
-        "options": {
-          "enabled": true
-        }
-      },
-      "ushotgun": {
-        "options": {
-          "enabled": true
-        }
-      }
-    }
-  },
-  "katana": "2.6v4",
-  "upython": {
-    "version": "3.6.2",
-    "addons": {
-      "pyside2": {
-        "options": {
-          "enabled": true
-        }
-      },
-      "psycopg": {
-        "options": {
-          "enabled": true
-        }
-      },
-      "openimageio": {
-        "options": {
-          "enabled": true
-        }
-      },
-      "opencolorio": {
-        "options": {
-          "enabled": true
-        }
-      },
-      "setuptools": {
-        "options": {
-          "enabled": true
-        }
-      },
-      "ingestor": {
-        "options": {
-          "enabled": true
-        }
-      }
-    }
-  },
-  "deadlinelauncher": "9.0.3.0",
-  "deadlinecommand": "9.0.3.0",
-  "deadlinemonitor": "9.0.3.0",
-  "deadlineslave": "9.0.3.0",
-  "rv": {
-    "version": "7.2.0",
-    "addons": {
-      "shotgun": {
-        "options": {
-          "enabled": true
-        }
-      },
-      "ushotgun": {
-        "options": {
-          "enabled": true
-        }
-      },
-      "rvtools": {
-        "options": {
-          "enabled": true
-        }
-      },
-      "ingestor": {
-        "options": {
-          "enabled": true
-        }
-      },
-      "basetools": {
-        "options": {
-          "enabled": true
-        }
-      }
-    }
-  },
-  "rvio": "7.2.0",
-  "ingestor": "0.21.0",
-  "atom": "1.25.1",
-  "mochapro": "5.2.1",
-  "ffmpeg": "N_86731_g8bf9572e9a_static",
-  "rez": "2.13.1",
-  "xnview": "0.87",
-  "gcc": "5.4.0",
-  "qbs": "1.8.1",
-  "mudbox": "2018",
-  "maya": {
-    "version": "2018",
-    "addons": {
-      "shotgun": {
-        "options": {
-          "enabled": true
-        }
-      },
-      "ushotgun": {
-        "options": {
-          "enabled": true
-        }
-      },
-      "mtoa": {
-        "options": {
-          "enabled": true
-        }
-      },
-      "basetools": {
-        "options": {
-          "enabled": true
-        }
-      },
-      "mayatools": {
-        "options": {
-          "enabled": true
-        }
-      }
-    }
-  },
-  "silhouette": "6.1.7",
-  "mari": "3.3v1",
-  "nuke": {
-    "version": "11.1v1",
-    "addons": {
-      "shotgun": {
-        "options": {
-          "enabled": true
-        }
-      },
-      "ushotgun": {
-        "options": {
-          "enabled": true
-        }
-      },
-      "basetools": {
-        "options": {
-          "enabled": true
-        }
-      },
-      "opticalflares": {
-        "options": {
-          "enabled": true
-        }
-      },
-      "nuketools": {
-        "options": {
-          "enabled": true
-        }
-      },
-      "pgbokeh": {
-        "options": {
-          "enabled": true
-        }
-      },
-      "neatvideo": {
-        "options": {
-          "enabled": true
-        }
-      },
-      "ingestor": {
-        "options": {
-          "enabled": true
-        }
-      },
-      "cryptomatte": {
-        "options": {
-          "enabled": true
-        }
-      }
-    }
-  }
 }
