@@ -200,7 +200,7 @@
             },
             "centipede": {
                 "options": {
-                    "enabled": true
+                    "enabled": false
                 }
             },
             "cryptomatte": {
