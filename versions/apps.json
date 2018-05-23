@@ -6,11 +6,6 @@
                 "options": {
                     "enabled": true
                 }
-            },
-            "centipede": {
-                "options": {
-                    "enabled": true
-                }
             }
         }
     },
@@ -65,11 +60,6 @@
                 "options": {
                     "enabled": true
                 }
-            },
-            "centipede": {
-                "options": {
-                    "enabled": true
-                }
             }
         }
     },
@@ -100,11 +90,6 @@
                     "enabled": true
                 }
             },
-            "centipede": {
-                "options": {
-                    "enabled": true
-                }
-            },
             "basetools": {
                 "options": {
                     "enabled": true
@@ -113,8 +98,7 @@
         }
     },
     "rvio": "7.2.0",
-    "ingestor": "0.21.0",
-    "centipede": "0.21.0",
+    "ingestor": "0.22.0",
     "atom": "1.25.1",
     "mochapro": "5.2.1",
     "ffmpeg": "N_86731_g8bf9572e9a_static",
@@ -196,11 +180,6 @@
             "ingestor": {
                 "options": {
                     "enabled": true
-                }
-            },
-            "centipede": {
-                "options": {
-                    "enabled": false
                 }
             },
             "cryptomatte": {
