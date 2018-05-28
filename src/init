@@ -19,7 +19,7 @@
 #                 \ /
 #                  `
 # Defines the active versions of apps, plugins (etc) as environment variables that are
-# later used by wrappers inside ucore. The variables get defined by the convention
+# later used by wrappers inside ulauncher. The variables get defined by the convention
 # $UVER_<NAME>_VERSION. They are declared using json files which can be localized
 # under the "../versions" folder (the json structure is basically an one dimension object).
 # Any json file created under ../versions is going to be used automatically.
