@@ -5,7 +5,6 @@ import qbs.TextFile
 
 Project {
   id: main
-  property string name: "uver"
   property string releaseType
 
   Probe {
@@ -28,7 +27,7 @@ Project {
       qbs.installPrefix: {
 
         // building the target location
-        targetPrefix = FileInfo.joinPaths(main.name, info.data.version)
+        targetPrefix = FileInfo.joinPaths(info.data.type, info.data.name, info.data.version)
 
         // making sure to never override a production release
         targetFullPath = FileInfo.joinPaths(qbs.installRoot, targetPrefix)
@@ -57,16 +56,6 @@ Project {
           ]
           qbs.install: true
           qbs.installSourceBase: "./"
-      }
-
-      Group {
-          name: "Active Versions"
-          files: [
-            "versions/**"
-          ]
-          qbs.install: true
-          qbs.installDir: "versions"
-          qbs.installSourceBase: "./versions"
       }
     }
   }
