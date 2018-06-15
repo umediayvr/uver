@@ -43,11 +43,11 @@ else
   export PYTHONPATH="$uverLib:$PYTHONPATH"
 fi
 
-# making sure $UVER_VERSIONS_DIR is defined properly
-if ! [ -d "$UVER_VERSIONS_DIR" ]; then
-  echo "uver error: Could not find directory defined by \$UVER_VERSIONS_DIR" >&2
+# making sure $UVER_CONFIG_ROOT is defined properly
+if ! [ -d "$UVER_CONFIG_ROOT" ]; then
+  echo "uver error: Could not find directory defined by \$UVER_CONFIG_ROOT" >&2
 else
-  coreVersions="$UVER_VERSIONS_DIR"
+  coreVersions="$UVER_CONFIG_ROOT"
 
   # setting versions as environment variables
   for coreVersionType in $coreVersions; do
