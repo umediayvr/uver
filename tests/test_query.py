@@ -21,7 +21,7 @@ class TestQuery(unittest.TestCase):
 
         self.assertEqual(len(softwareNames), len(softwares))
         self.assertListEqual(
-            filter(lambda x: x.name() not in softwareNames, softwares),
+            list(filter(lambda x: x.name() not in softwareNames, softwares)),
             []
         )
 
@@ -34,7 +34,7 @@ class TestQuery(unittest.TestCase):
 
         self.assertEqual(len(softwareUverNames), len(softwares))
         self.assertListEqual(
-            filter(lambda x: x.uverName() not in softwareUverNames, softwares),
+            list(filter(lambda x: x.uverName() not in softwareUverNames, softwares)),
             []
         )
 

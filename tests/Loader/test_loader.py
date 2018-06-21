@@ -1,5 +1,5 @@
 from uver.Loader import Loader, AddonNotFoundError
-from CommonLoader import CommonLoader
+from .CommonLoader import CommonLoader
 
 class TestLoader(CommonLoader):
     """Test loader object."""
