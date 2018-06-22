@@ -21,13 +21,13 @@ class Query(object):
         """
         Return a list of software names.
         """
-        return map(lambda x: x.name(), self.softwares())
+        return list(map(lambda x: x.name(), self.softwares()))
 
     def softwareUverNames(self):
         """
         Return a list of software uver names.
         """
-        return map(lambda x: x.uverName(), self.softwares())
+        return list(map(lambda x: x.uverName(), self.softwares()))
 
     def addonNames(self):
         """

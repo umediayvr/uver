@@ -12,7 +12,7 @@ class CommonLoader(unittest.TestCase):
         self.assertEqual(len(softwares), len(softwareInfos))
 
         for softwareName, softwareData in softwareInfos.items():
-            software = filter(lambda x: x.name() == softwareName, softwares)[0]
+            software = list(filter(lambda x: x.name() == softwareName, softwares))[0]
             version = softwareData['version'] if isinstance(softwareData, dict) else softwareData
             self.assertEqual(software.name(), softwareName)
             self.assertEqual(software.version(), version)
@@ -30,7 +30,7 @@ class CommonLoader(unittest.TestCase):
         Check if the addon information is part of the software list.
         """
         for softwareName, softwareData in softwareInfos.items():
-            software = filter(lambda x: x.name() == softwareName, softwares)[0]
+            software = list(filter(lambda x: x.name() == softwareName, softwares))[0]
 
             if 'addons' in softwareData:
                 for addonName, addonData in softwareData['addons'].items():

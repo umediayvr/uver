@@ -8,7 +8,7 @@ from uver.Loader import \
     UnexpectedVersionFormatError, \
     InvalidFileError, \
     InvalidDirectoryError
-from CommonLoader import CommonLoader
+from .CommonLoader import CommonLoader
 
 class TestJsonLoader(CommonLoader):
     """Test json loader object."""
