@@ -29,7 +29,7 @@ dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # avoiding to prepended to the system path for every single bash session by making
 # sure bin is not included to the path yet.
-uverBinPath+="$dir/bin"
+uverBinPath="$dir/bin"
 if ! [ "$UVER_BIN_PATH" == "$uverBinPath" ]; then
   export UVER_BIN_PATH=$uverBinPath
   export PATH="$uverBinPath:$PATH"
